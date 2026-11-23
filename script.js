@@ -6,12 +6,12 @@ const recipeArea = document.getElementById("recipe");
 async function getRecipe() {
   recipeArea.textContent = "";
 
-  const response = await fetch("https://dummyjson.com/recipes/${input.value}");
+  const response = await fetch(`https://dummyjson.com/recipes/${input.value}`);
   const recipe = await response.json();
   console.log(recipe);
 
   const card = document.createElement("div");
-  card.className = "card p-3 mb-5 w-40";
+  card.className = "card p-3 mb-5 w-50";
 
   const title = document.createElement("h2");
   title.textContent = recipe.name;
@@ -21,7 +21,7 @@ async function getRecipe() {
   cuisine.textContent = "Cuisine: ${recipe.cuisine}";
   card.appendChild(cuisine);
 
-  const img = decodeURIComponent.createElement("img");
+  const img = document.createElement("img");
   img.src = recipe.image;
   img.alt = recipe.name;
   img.className = "rounded-2";
