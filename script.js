@@ -10,16 +10,20 @@ async function getRecipe() {
   const recipe = await response.json();
   console.log(recipe);
 
+  //23,50,75,100 bootstrap
   const card = document.createElement("div");
-  card.className = "card p-3 mb-5 w-50";
+  card.className = "card p-3 mb-5 w-75";
 
   const title = document.createElement("h2");
   title.textContent = recipe.name;
   card.appendChild(title);
 
   const cuisine = document.createElement("p");
-  cuisine.textContent = "Cuisine: ${recipe.cuisine}";
+  cuisine.textContent = `Cuisine: ${recipe.cuisine}`;
   card.appendChild(cuisine);
+  const prep = document.createElement("p");
+  prep.textContent = `Prep time: ${recipe.prepTimeMinutes} minutes`;
+  card.appendChild(prep);
 
   const img = document.createElement("img");
   img.src = recipe.image;
